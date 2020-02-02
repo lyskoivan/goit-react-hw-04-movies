@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from '../Header/Header';
 
 import HomePgae from '../../pages/HomePage/HomePage';
+import MoviesPage from '../../pages/MoviesPage/MoviesPage';
 
 class App extends Component {
   func = () => {
@@ -14,7 +15,11 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Route path="/" exact component={HomePgae} />
+        <Switch>
+          <Route path="/" exact component={HomePgae} />
+          <Route path="/movies" component={MoviesPage} />
+          <Redirect to="/" />
+        </Switch>
       </div>
     );
   }
