@@ -15,4 +15,16 @@ export default {
       throw new Error(error);
     }
   },
+
+  async getMoviesByQuery(query) {
+    try {
+      const moviesByQuery = await axios.get(
+        `/search/movie?api_key=${API_KEY}&query=${query}&page=1`,
+      );
+
+      return moviesByQuery.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 };

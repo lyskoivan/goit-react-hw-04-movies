@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import moviesAPI from '../../services/api';
 
-import HomeList from '../../components/HomeList/HomeList';
+import MoviesList from '../../components/MoviesList/MoviesList';
 
 export default class HomePage extends Component {
   state = {
@@ -19,7 +19,7 @@ export default class HomePage extends Component {
     const { popularMovies } = this.state;
     return (
       <div>
-        <HomeList popularMovies={popularMovies} />
+        <MoviesList movies={popularMovies} />
       </div>
     );
   }

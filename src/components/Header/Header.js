@@ -21,7 +21,7 @@ const Header = () => (
         activeClassName={styles['nav_list__link-active']}
         className={styles.nav_list__link}
       >
-        Movie
+        Movies
       </NavLink>
     </li>
   </ul>

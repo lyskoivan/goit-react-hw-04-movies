@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HomeListItem = ({ title }) => {
+const MoviesListItem = ({ title }) => {
   return <li>{title}</li>;
 };
 
-HomeListItem.propTypes = {
+MoviesListItem.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default HomeListItem;
+export default MoviesListItem;
