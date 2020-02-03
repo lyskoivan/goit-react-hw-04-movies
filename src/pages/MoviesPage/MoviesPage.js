@@ -17,7 +17,6 @@ export default class MoviesPage extends Component {
   };
 
   state = {
-    searchQuery: '',
     movies: [],
   };
 
@@ -26,7 +25,6 @@ export default class MoviesPage extends Component {
     const query = getCategoryFromLocation(location);
 
     if (query) {
-      this.setState({ searchQuery: query });
       this.getMovies();
     }
   }
@@ -63,12 +61,13 @@ export default class MoviesPage extends Component {
   };
 
   handleChangeSearchQuery = query => {
-    this.setState({ searchQuery: query });
     this.handleCategoryChange(query);
   };
 
   render() {
-    const { searchQuery, movies } = this.state;
+    const { movies } = this.state;
+    const { location } = this.props;
+    const searchQuery = getCategoryFromLocation(location);
 
     return (
       <section>
