@@ -37,4 +37,28 @@ export default {
       throw new Error(error);
     }
   },
+
+  async getMvoieCredits(id) {
+    try {
+      const movieCredits = await axios.get(
+        `movie/${id}/credits?api_key=${API_KEY}`,
+      );
+
+      return movieCredits.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+
+  async getMvoieReviews(id) {
+    try {
+      const movieCredits = await axios.get(
+        `movie/${id}/reviews?api_key=${API_KEY}`,
+      );
+
+      return movieCredits.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 };
