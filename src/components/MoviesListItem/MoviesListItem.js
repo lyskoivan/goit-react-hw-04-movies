@@ -1,11 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-const MoviesListItem = ({ title, id }) => {
+const MoviesListItem = ({ title, id, location }) => {
   return (
     <li>
-      <NavLink to={`movies/${id}`}>{title}</NavLink>
+      <Link
+        to={{
+          pathname: `movies/${id}`,
+          state: { from: location },
+        }}
+      >
+        {title}
+      </Link>
     </li>
   );
 };
@@ -13,6 +20,7 @@ const MoviesListItem = ({ title, id }) => {
 MoviesListItem.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
+  location: PropTypes.shape().isRequired,
 };
 
-export default MoviesListItem;
+export default withRouter(MoviesListItem);

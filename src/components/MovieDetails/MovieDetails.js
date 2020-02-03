@@ -6,10 +6,18 @@ import MovieDetailsArticle from '../MovieDetailsArticle/MovieDetailsArticle';
 
 import styles from './MovieDetails.module.css';
 
-const MovieDetails = ({ movie, match, history }) => {
+const MovieDetails = ({ movie, match, history, location }) => {
   const handleGoBack = () => {
+    const { state } = location;
+
+    if (state) {
+      history.push(location.state.from);
+      return;
+    }
+
     history.push('/movies');
   };
+
   return (
     <>
       <section className={styles.movieDetails}>
@@ -38,6 +46,7 @@ MovieDetails.propTypes = {
   movie: PropTypes.shape().isRequired,
   match: PropTypes.shape().isRequired,
   history: PropTypes.shape().isRequired,
+  location: PropTypes.shape().isRequired,
 };
 
 export default withRouter(MovieDetails);
