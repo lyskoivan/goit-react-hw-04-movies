@@ -18,9 +18,9 @@ export default class HomePage extends Component {
   render() {
     const { popularMovies } = this.state;
     return (
-      <div>
+      <section>
         <MoviesList movies={popularMovies} />
-      </div>
+      </section>
     );
   }
 }

@@ -35,10 +35,10 @@ export default class MoviesPage extends Component {
     const { searchQuery, movies } = this.state;
 
     return (
-      <div>
+      <section>
         <MoviesSearchForm onSubmit={this.handleChangeSearchQuery} />
         {searchQuery && <MoviesList movies={movies} />}
-      </div>
+      </section>
     );
   }
 }

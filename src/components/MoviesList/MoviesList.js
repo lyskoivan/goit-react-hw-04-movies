@@ -5,13 +5,11 @@ import MoviesListItem from '../MoviesListItem/MoviesListItem';
 
 const MoviesList = ({ movies }) => {
   return (
-    <div>
-      <ul>
-        {movies.map(movie => (
-          <MoviesListItem key={movie.id} title={movie.title} id={movie.id} />
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {movies.map(movie => (
+        <MoviesListItem key={movie.id} title={movie.title} id={movie.id} />
+      ))}
+    </ul>
   );
 };
 
