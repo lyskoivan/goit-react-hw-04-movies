@@ -8,7 +8,7 @@ const MoviesList = ({ movies }) => {
     <div>
       <ul>
         {movies.map(movie => (
-          <MoviesListItem key={movie.id} title={movie.title} />
+          <MoviesListItem key={movie.id} title={movie.title} id={movie.id} />
         ))}
       </ul>
     </div>

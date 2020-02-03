@@ -5,11 +5,10 @@ import Header from '../Header/Header';
 
 import HomePgae from '../../pages/HomePage/HomePage';
 import MoviesPage from '../../pages/MoviesPage/MoviesPage';
+import MovieDetailsPage from '../../pages/MovieDetailsPage/MovieDetailsPage';
 
 class App extends Component {
-  func = () => {
-    return 12;
-  };
+  func = () => {};
 
   render() {
     return (
@@ -17,6 +16,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path="/" exact component={HomePgae} />
+          <Route path="/movies/:movieId" component={MovieDetailsPage} />
           <Route path="/movies" component={MoviesPage} />
           <Redirect to="/" />
         </Switch>

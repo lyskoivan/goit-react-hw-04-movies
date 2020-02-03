@@ -27,4 +27,14 @@ export default {
       throw new Error(error);
     }
   },
+
+  async getMovieById(id) {
+    try {
+      const movieById = await axios.get(`/movie/${id}?api_key=${API_KEY}`);
+
+      return movieById.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
 };
