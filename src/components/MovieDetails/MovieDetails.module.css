@@ -11,6 +11,7 @@
   padding: 15px;
   transition: all ease-in-out 0.2s;
   border-radius: 2px;
+  outline: none;
 }
 
 .movieDetails__button:hover {
@@ -22,6 +23,7 @@
   padding: 20px;
   border-top: 1px solid rgb(207, 206, 206);
   border-bottom: 1px solid rgb(207, 206, 206);
+  list-style-type: none;
 }
 
 .movieDetails__items {

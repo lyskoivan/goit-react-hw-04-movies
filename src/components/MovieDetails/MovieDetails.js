@@ -6,6 +6,12 @@ import MovieDetailsArticle from '../MovieDetailsArticle/MovieDetailsArticle';
 
 import styles from './MovieDetails.module.css';
 
+const locationReturn = location => {
+  if (!location.state) return null;
+
+  return { from: location.state.from };
+};
+
 const MovieDetails = ({ movie, match, history, location }) => {
   const handleGoBack = () => {
     const { state } = location;
@@ -33,7 +39,10 @@ const MovieDetails = ({ movie, match, history, location }) => {
           <li className={styles.movieDetails__items}>
             <NavLink
               className={styles.movieDetails__links}
-              to={`${match.url}/cast`}
+              to={{
+                pathname: `${match.url}/cast`,
+                state: locationReturn(location),
+              }}
             >
               Cast
             </NavLink>
@@ -41,7 +50,10 @@ const MovieDetails = ({ movie, match, history, location }) => {
           <li className={styles.movieDetails__items}>
             <NavLink
               className={styles.movieDetails__links}
-              to={`${match.url}/reviews`}
+              to={{
+                pathname: `${match.url}/reviews`,
+                state: locationReturn(location),
+              }}
             >
               Reviews
             </NavLink>
