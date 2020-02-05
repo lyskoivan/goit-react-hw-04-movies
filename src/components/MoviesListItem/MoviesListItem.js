@@ -25,10 +25,14 @@ const MoviesListItem = ({ title, id, src, location }) => {
   );
 };
 
+MoviesListItem.defaultProps = {
+  src: '',
+};
+
 MoviesListItem.propTypes = {
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
   location: PropTypes.shape().isRequired,
 };
 

@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from '../Header/Header';
 
-import HomePgae from '../../pages/HomePage/HomePage';
-import MoviesPage from '../../pages/MoviesPage/MoviesPage';
-import MovieDetailsPage from '../../pages/MovieDetailsPage/MovieDetailsPage';
+import routes from '../../routes/routes';
 
 class App extends Component {
   func = () => {};
@@ -14,12 +12,24 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Switch>
-          <Route path="/" exact component={HomePgae} />
-          <Route path="/movies/:movieId" component={MovieDetailsPage} />
-          <Route path="/movies" component={MoviesPage} />
-          <Redirect to="/" />
-        </Switch>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Switch>
+            <Route
+              path={routes.HOME_PAGE.path}
+              exact
+              component={routes.HOME_PAGE.component}
+            />
+            <Route
+              path={routes.MOVIE_DETAILS_PAGE.path}
+              component={routes.MOVIE_DETAILS_PAGE.component}
+            />
+            <Route
+              path={routes.MOVIES_PAGE.path}
+              component={routes.MOVIES_PAGE.component}
+            />
+            <Redirect to={routes.HOME_PAGE.path} />
+          </Switch>
+        </Suspense>
       </div>
     );
   }
