@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import movieAPI from '../../services/api';
 
+import styles from './Reviews.module.css';
+
 const getIdFromProps = props => props.match.params.movieId;
 
 export default class Reviews extends Component {
@@ -27,9 +29,12 @@ export default class Reviews extends Component {
     return (
       <>
         {movieReviews.length > 1 ? (
-          <ul>
+          <ul className={styles.ReviewsList}>
             {movieReviews.map(review => (
-              <li key={review.id}>{review.content}</li>
+              <li key={review.id} className={styles.ReviewsList__item}>
+                <h4>Author: {review.author}</h4>
+                <p>{review.content}</p>
+              </li>
             ))}
           </ul>
         ) : (

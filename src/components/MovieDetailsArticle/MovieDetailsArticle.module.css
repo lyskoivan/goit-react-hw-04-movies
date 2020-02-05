@@ -6,6 +6,7 @@
 
 .movieDetails__img {
   height: 350px;
+  border: 1px solid #dddddd;
 }
 
 .movieDetails__right_wrapper {

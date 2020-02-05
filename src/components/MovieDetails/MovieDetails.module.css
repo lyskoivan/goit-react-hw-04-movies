@@ -16,3 +16,37 @@
 .movieDetails__button:hover {
   opacity: 1;
 }
+
+.movieDetails__options {
+  margin: 20px;
+  padding: 20px;
+  border-top: 1px solid rgb(207, 206, 206);
+  border-bottom: 1px solid rgb(207, 206, 206);
+}
+
+.movieDetails__items {
+  margin-top: 20px;
+}
+
+.movieDetails__links {
+  color: palevioletred;
+  text-decoration: none;
+  position: relative;
+  font-weight: 500;
+  font-size: 17;
+}
+
+.movieDetails__links::after {
+  content: '';
+  position: absolute;
+  left: 0px;
+  height: 2px;
+  bottom: -10px;
+  width: 0%;
+  background-color: palevioletred;
+  transition: width 0.2s linear;
+}
+
+.movieDetails__links:hover::after {
+  width: 100%;
+}

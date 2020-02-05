@@ -29,12 +29,22 @@ const MovieDetails = ({ movie, match, history, location }) => {
           Go back
         </button>
         <MovieDetailsArticle movie={movie} />
-        <ul>
-          <li>
-            <NavLink to={`${match.url}/cast`}>cast</NavLink>
+        <ul className={styles.movieDetails__options}>
+          <li className={styles.movieDetails__items}>
+            <NavLink
+              className={styles.movieDetails__links}
+              to={`${match.url}/cast`}
+            >
+              Cast
+            </NavLink>
           </li>
-          <li>
-            <NavLink to={`${match.url}/reviews`}>reviews</NavLink>
+          <li className={styles.movieDetails__items}>
+            <NavLink
+              className={styles.movieDetails__links}
+              to={`${match.url}/reviews`}
+            >
+              Reviews
+            </NavLink>
           </li>
         </ul>
       </section>
