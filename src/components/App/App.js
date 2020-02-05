@@ -2,6 +2,7 @@ import React, { Component, Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Header from '../Header/Header';
+import PageLoader from '../PageLoader/PageLoader';
 
 import routes from '../../routes/routes';
 
@@ -12,7 +13,7 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={<PageLoader />}>
           <Switch>
             <Route
               path={routes.HOME_PAGE.path}
