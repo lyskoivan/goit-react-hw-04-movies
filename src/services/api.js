@@ -5,6 +5,8 @@ const API_KEY = 'b7b330666a733df935ff0bb74641b061';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 export default {
+  imageDefaultURL: 'https://image.tmdb.org/t/p/w500/',
+
   async getPopularMovies() {
     try {
       const popularMovies = await axios.get(

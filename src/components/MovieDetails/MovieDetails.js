@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
 
+import routes from '../../routes/routes';
+
 import MovieDetailsArticle from '../MovieDetailsArticle/MovieDetailsArticle';
 
 import styles from './MovieDetails.module.css';
@@ -21,7 +23,7 @@ const MovieDetails = ({ movie, match, history, location }) => {
       return;
     }
 
-    history.push('/movies');
+    history.push(routes.MOVIES_PAGE.path);
   };
 
   return (

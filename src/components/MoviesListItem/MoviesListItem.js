@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, withRouter } from 'react-router-dom';
 
+import API from '../../services/api';
+
 import styles from './MoviesListItem.module.css';
 
 const MoviesListItem = ({ title, id, src, location }) => {
   return (
     <li className={styles.MoviesList__item}>
       <img
-        src={`https://image.tmdb.org/t/p/w500/${src}`}
+        src={`${API.imageDefaultURL}${src}`}
         alt=""
         className={styles.MoviesList__img}
       />

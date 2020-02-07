@@ -16,7 +16,7 @@ const movieObjectMapper = movie => {
     title: movie.title,
     userScore: `${movie.vote_average * 10}%`,
     overview: movie.overview,
-    img: `https://image.tmdb.org/t/p/w500/${movie.poster_path}`,
+    img: `${moviesAPI.imageDefaultURL}${movie.poster_path}`,
     genres: movie.genres,
   };
 };
