@@ -25,7 +25,6 @@ export default class Cast extends Component {
 
   render() {
     const { movieCast } = this.state;
-    console.log(movieCast);
     return (
       <>
         {movieCast.length > 0 ? (
@@ -33,7 +32,7 @@ export default class Cast extends Component {
             {movieCast.map(cast => (
               <li key={cast.id} className={styles.CastList__item}>
                 <img
-                  src={`https://image.tmdb.org/t/p/w500/${cast.profile_path}`}
+                  src={`${movieAPI.imageDefaultURL}${cast.profile_path}`}
                   alt=""
                   className={styles.CastList__img}
                 />
