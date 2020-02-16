@@ -4,6 +4,10 @@ import styles from './Cast.module.css';
 
 import movieAPI from '../../services/api';
 
+import constants from '../../constants';
+
+import CastItem from '../CastItem/CastItem';
+
 const getIdFromProps = props => props.match.params.movieId;
 
 export default class Cast extends Component {
@@ -20,7 +24,7 @@ export default class Cast extends Component {
 
     movieAPI
       .getMvoieCredits(id)
-      .then(data => this.setState({ movieCast: data.cast }));
+      .then(({ cast }) => this.setState({ movieCast: cast }));
   };
 
   render() {
@@ -30,17 +34,12 @@ export default class Cast extends Component {
         {movieCast.length > 0 ? (
           <ul className={styles.CastList}>
             {movieCast.map(cast => (
-              <li key={cast.id} className={styles.CastList__item}>
-                <img
-                  src={`${movieAPI.imageDefaultURL}${cast.profile_path}`}
-                  alt=""
-                  className={styles.CastList__img}
-                />
-                <div>
-                  <p>Name: {cast.name}</p>
-                  <p>Character: {cast.character}</p>
-                </div>
-              </li>
+              <CastItem
+                key={cast.id}
+                name={cast.name}
+                character={cast.character}
+                src={`${constants.imageDefaultURL}${cast.profile_path}`}
+              />
             ))}
           </ul>
         ) : (

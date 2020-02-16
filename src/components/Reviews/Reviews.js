@@ -20,7 +20,7 @@ export default class Reviews extends Component {
 
     movieAPI
       .getMvoieReviews(id)
-      .then(reviews => this.setState({ movieReviews: reviews.results }));
+      .then(({ results }) => this.setState({ movieReviews: results }));
   };
 
   render() {
@@ -28,7 +28,7 @@ export default class Reviews extends Component {
 
     return (
       <>
-        {movieReviews.length > 1 ? (
+        {movieReviews.length > 0 ? (
           <ul className={styles.ReviewsList}>
             {movieReviews.map(review => (
               <li key={review.id} className={styles.ReviewsList__item}>

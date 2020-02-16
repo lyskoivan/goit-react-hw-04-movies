@@ -5,8 +5,6 @@ const API_KEY = 'b7b330666a733df935ff0bb74641b061';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
 export default {
-  imageDefaultURL: 'https://image.tmdb.org/t/p/w500/',
-
   async getPopularMovies() {
     try {
       const popularMovies = await axios.get(
@@ -14,7 +12,7 @@ export default {
       );
       return popularMovies.data;
     } catch (error) {
-      throw new Error(error);
+      return console.log(error);
     }
   },
 
@@ -26,7 +24,7 @@ export default {
 
       return moviesByQuery.data;
     } catch (error) {
-      throw new Error(error);
+      return console.log(error);
     }
   },
 
@@ -36,7 +34,7 @@ export default {
 
       return movieById.data;
     } catch (error) {
-      throw new Error(error);
+      return console.log(error);
     }
   },
 
@@ -48,7 +46,7 @@ export default {
 
       return movieCredits.data;
     } catch (error) {
-      throw new Error(error);
+      return console.log(error);
     }
   },
 
@@ -60,7 +58,7 @@ export default {
 
       return movieCredits.data;
     } catch (error) {
-      throw new Error(error);
+      return console.log(error);
     }
   },
 };

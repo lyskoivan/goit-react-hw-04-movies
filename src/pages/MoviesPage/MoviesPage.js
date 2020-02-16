@@ -13,7 +13,10 @@ const getCategoryFromLocation = location =>
 export default class MoviesPage extends Component {
   static propTypes = {
     history: PropTypes.shape().isRequired,
-    location: PropTypes.shape().isRequired,
+    location: PropTypes.shape({
+      search: PropTypes.string.isRequired,
+      pathname: PropTypes.string.isRequired,
+    }).isRequired,
   };
 
   state = {
@@ -46,7 +49,7 @@ export default class MoviesPage extends Component {
 
     moviesAPI
       .getMoviesByQuery(searchQuery)
-      .then(data => this.setState({ movies: data.results }));
+      .then(({ results }) => this.setState({ movies: results }));
   };
 
   handleCategoryChange = category => {

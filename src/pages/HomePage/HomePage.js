@@ -12,7 +12,7 @@ export default class HomePage extends Component {
   componentDidMount() {
     moviesAPI
       .getPopularMovies()
-      .then(data => this.setState({ popularMovies: data.results }));
+      .then(({ results }) => this.setState({ popularMovies: results }));
   }
 
   render() {

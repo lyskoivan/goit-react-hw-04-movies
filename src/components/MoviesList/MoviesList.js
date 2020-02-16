@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import constants from '../../constants';
+
 import MoviesListItem from '../MoviesListItem/MoviesListItem';
 
 import styles from './MoviesList.module.css';
@@ -13,7 +15,7 @@ const MoviesList = ({ movies }) => {
           key={movie.id}
           title={movie.title}
           id={movie.id}
-          src={movie.poster_path}
+          src={`${constants.imageDefaultURL}${movie.poster_path}`}
         />
       ))}
     </ul>
@@ -21,7 +23,13 @@ const MoviesList = ({ movies }) => {
 };
 
 MoviesList.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.shape().isRequired).isRequired,
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired,
+      poster_path: PropTypes.string,
+    }).isRequired,
+  ).isRequired,
 };
 
 export default MoviesList;

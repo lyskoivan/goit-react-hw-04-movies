@@ -4,6 +4,8 @@ import { Route } from 'react-router-dom';
 
 import moviesAPI from '../../services/api';
 
+import constants from '../../constants';
+
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 
 import Cast from '../../components/Cast/Cast';
@@ -16,14 +18,14 @@ const movieObjectMapper = movie => {
     title: movie.title,
     userScore: `${movie.vote_average * 10}%`,
     overview: movie.overview,
-    img: `${moviesAPI.imageDefaultURL}${movie.poster_path}`,
+    img: `${constants.imageDefaultURL}${movie.poster_path}`,
     genres: movie.genres,
   };
 };
 
 class MovieDetailsPage extends Component {
   static propTypes = {
-    match: PropTypes.shape().isRequired,
+    match: PropTypes.shape({ path: PropTypes.string.isRequired }).isRequired,
   };
 
   state = {
